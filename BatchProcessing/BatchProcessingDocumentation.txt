@@ -1,0 +1,16 @@
+Batch Job Documentation:
+
+	• Created a Python script that performs image processing tasks and created functions to resize images, add watermarks using python pillow library 
+	• Build a Docker container image that includes my python script using pillow library for image processing.
+	• I pushed my docker image to docker hub (https://hub.docker.com/layers/grahesht/graheshtunuguntla/latest/images/sha256-eebf1f891977991d30a315877ecef4f64a385cd4ca1b5c646ce7c0285ecae8f1?context=repo)
+	• Created an AWS batch job definition in AWS batch service, Under container properties , i have provided my docker image which could push from docker hub
+	• Created an Compute environment configuration by choosing Amazon Elastic Compute Cloud (Amazon EC2) and provided all the required details
+	• Created an Job queue providing the compute environment  and all the required details 
+	• Created a job by providing my job definition, job queue, my vpc and all the required details
+
+
+Issues/Errors faced
+After clicking on submit job, i am getting below issue
+Job with shareIdentifier or schedulingPriority can only be submitted to job queue with fair share scheduling policy
+Status reason
+CLIENT_ERROR - Your compute environment has been INVALIDATED and scaled down because none of the instances joined the underlying ECS Cluster. Common issues preventing instances joining are the following: VPC/Subnet configuration preventing communication to ECS, incorrect Instance Profile policy preventing authorization to ECS, or customized AMI or LaunchTemplate configurations affecting ECS agent.
